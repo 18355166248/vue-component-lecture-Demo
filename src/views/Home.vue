@@ -1,16 +1,22 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
     <HelloWorld msg="Welcome to Your Vue.js App" />
+    <button @click="helloMethod">触发HelloWorld组件事件</button>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
 import HelloWorld from "@/components/HelloWorld.vue";
+import commonMixin from "mixins/common";
 
 export default {
   name: "home",
+  mixins: [commonMixin],
+  methods: {
+    helloMethod() {
+      this.broadcast("B", "changeName", { name: "改变了名字" });
+    }
+  },
   components: {
     HelloWorld
   }
