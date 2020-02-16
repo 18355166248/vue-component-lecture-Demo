@@ -1,7 +1,25 @@
 const commonMixins = {
   methods: {
+    // 向下查找
     broadcast(componentName, eventName, params) {
       broadcast.call(this, componentName, eventName, params);
+    },
+    // 向上查找
+    dispatch(componentNames, eventName, params) {
+      let parent = this.$parent || this.$root;
+      let name = parent.$options.name;
+
+      while (parent && (!name || name !== componentNames)) {
+        parent = parent.$parent;
+
+        if (parent) {
+          name = parent.$options.name;
+        }
+      }
+
+      if (parent) {
+        parent.$emit.apply(parent, [eventName].concat(params));
+      }
     }
   }
 };
