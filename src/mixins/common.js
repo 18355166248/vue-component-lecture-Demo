@@ -2,38 +2,38 @@ const commonMixins = {
   methods: {
     // 向下查找
     broadcast(componentName, eventName, params) {
-      broadcast.call(this, componentName, eventName, params);
+      broadcast.call(this, componentName, eventName, params)
     },
     // 向上查找
     dispatch(componentNames, eventName, params) {
-      let parent = this.$parent || this.$root;
-      let name = parent.$options.name;
+      let parent = this.$parent || this.$root
+      let name = parent.$options.name
 
       while (parent && (!name || name !== componentNames)) {
-        parent = parent.$parent;
+        parent = parent.$parent
 
         if (parent) {
-          name = parent.$options.name;
+          name = parent.$options.name
         }
       }
 
       if (parent) {
-        parent.$emit.apply(parent, [eventName].concat(params));
+        parent.$emit.apply(parent, [eventName].concat(params))
       }
-    }
-  }
-};
+    },
+  },
+}
 
 function broadcast(componentName, eventName, params) {
   this.$children.forEach(child => {
-    const name = child.$options.name;
+    const name = child.$options.name
 
     if (componentName === name) {
-      child.$emit.call(child, eventName, params);
+      child.$emit.call(child, eventName, params)
     } else {
-      broadcast.call(child, componentName, eventName, params);
+      broadcast.call(child, componentName, eventName, params)
     }
-  });
+  })
 }
 
-export default commonMixins;
+export default commonMixins

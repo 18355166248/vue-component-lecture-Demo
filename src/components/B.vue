@@ -20,7 +20,7 @@ export default {
 
     this.$on("changeName", this.changeName);
 
-    this.dispatch("Home", "onChangeAge", { age: 20 });
+    this.dispatch("Home", "onChangeAge", { age: 30 });
   },
   methods: {
     changeName({ name }) {

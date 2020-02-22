@@ -3,13 +3,14 @@ module.exports = {
   env: {
     node: true
   },
-  extends: ["plugin:vue/essential", "@vue/prettier"],
+  extends: ["plugin:vue/essential"],
   // 0:不处理  1:警告  2:报错并退出
   rules: {
     "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
     "semi": "off",
-    "singleQuote": "off",
+    "singleQuote": "on",
+    "no-unused-vars": ["warn"],
     // "comma-dangle": [2, "always"],
   },
   parserOptions: {
