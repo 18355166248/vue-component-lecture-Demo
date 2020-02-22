@@ -1,19 +1,21 @@
 module.exports = {
   root: true,
   env: {
-    node: true
+    node: true,
+    browser: true,
+    es6: true,
   },
-  extends: ["plugin:vue/essential"],
-  // 0:不处理  1:警告  2:报错并退出
+  plugins: ['vue'],
+  extends: ['plugin:vue/essential', 'plugin:prettier/recommended'],
+  // "off" or 0 - 关闭(禁用)规则
+  // "warn" or 1 - 将规则视为一个警告（并不会导致检查不通过）
+  // "error" or 2 - 将规则视为一个错误 (退出码为1，检查不通过)
   rules: {
-    "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
-    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
-    "semi": "off",
-    "singleQuote": "on",
-    "no-unused-vars": ["warn"],
-    // "comma-dangle": [2, "always"],
+    'prettier/prettier': 'error',
+    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'error',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
   },
   parserOptions: {
-    parser: "babel-eslint"
-  }
-};
+    parser: 'babel-eslint',
+  },
+}

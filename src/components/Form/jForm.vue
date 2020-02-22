@@ -30,6 +30,7 @@ export default {
   },
   created() {
     this.init()
+    console.log(123)
   },
   methods: {
     init() {

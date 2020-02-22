@@ -31,7 +31,7 @@ export default {
         ],
         email: [
           {
-            type: 'email',
+            type: "email",
             trigger: 'blur',
             message: "请输入正确的邮箱格式"
           }

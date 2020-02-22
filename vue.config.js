@@ -1,7 +1,7 @@
-const path = require("path");
+const path = require('path')
 
 function resolve(dir) {
-  return path.join(__dirname, dir);
+  return path.join(__dirname, dir)
 }
 
 module.exports = {
@@ -9,8 +9,8 @@ module.exports = {
   chainWebpack: config => {
     //修改文件引入自定义路径
     config.resolve.alias
-      .set("@", resolve("src"))
-      .set("mixins", resolve("src/mixins"))
-      .set("components", resolve("src/components"));
-  }
-};
+      .set('@', resolve('src'))
+      .set('mixins', resolve('src/mixins'))
+      .set('components', resolve('src/components'))
+  },
+}
