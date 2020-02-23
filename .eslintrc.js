@@ -12,7 +12,7 @@ module.exports = {
   // "error" or 2 - 将规则视为一个错误 (退出码为1，检查不通过)
   rules: {
     'prettier/prettier': 'error',
-    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'error',
+    'no-console': 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
   },
   parserOptions: {

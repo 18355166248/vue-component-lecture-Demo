@@ -4,15 +4,15 @@
 
 <script>
 export default {
-  name: "A",
+  name: 'A',
   data() {
     return {
-      name: "组件A的name性",
-      age: 12
-    };
+      name: '组件A的name性',
+      age: 12,
+    }
   },
-  created() {}
-};
+  created() {},
+}
 </script>
 
 <style scoped lang="scss"></style>

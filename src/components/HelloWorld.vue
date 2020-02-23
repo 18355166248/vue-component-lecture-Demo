@@ -6,18 +6,17 @@
 </template>
 
 <script>
-import B from "./B";
+import B from './B'
 
 export default {
-  name: "HelloWorld",
+  name: 'HelloWorld',
   props: {
-    msg: String
+    msg: String,
   },
   components: {
-    B
-  }
-};
+    B,
+  },
+}
 </script>
 
-<style scoped lang="scss">
-</style>
+<style scoped lang="scss"></style>

@@ -152,6 +152,8 @@ $red: #f56c6c;
       margin-top: 2px;
       color: $red;
       overflow: hidden;
+      position: absolute;
+      top: 100%;
     }
   }
 }

@@ -12,12 +12,12 @@
 </template>
 
 <script>
-import jForm from "components/Form/jForm";
-import jFromItem from "components/Form/jFormItem";
-import jInput from "components/Input/jInput";
+import jForm from 'components/Form/jForm'
+import jFromItem from 'components/Form/jFormItem'
+import jInput from 'components/Input/jInput'
 
 export default {
-  name: "About",
+  name: 'About',
   data() {
     return {
       formInline: {},
@@ -25,26 +25,26 @@ export default {
         name: [
           {
             required: true,
-            trigger: "blur",
-            message: "请输入姓名"
-          }
+            trigger: 'blur',
+            message: '请输入姓名',
+          },
         ],
         email: [
           {
-            type: "email",
+            type: 'email',
             trigger: 'blur',
-            message: "请输入正确的邮箱格式"
-          }
-        ]
-      }
-    };
+            message: '请输入正确的邮箱格式',
+          },
+        ],
+      },
+    }
   },
   components: {
     jForm,
     jFromItem,
-    jInput
-  }
-};
+    jInput,
+  },
+}
 </script>
 
 <style scoped lang="scss"></style>
