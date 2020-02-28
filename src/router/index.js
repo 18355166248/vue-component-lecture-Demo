@@ -1,23 +1,31 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
+
+export const routeList = ['FormDemo', 'GridDemo', 'DisplayDemo']
+
+function getRoute(name) {
+  return {
+    path: `/${name}`,
+    name,
+    component: () =>
+      import(
+        /* webpackChunkName: "name" */ `../views/componentList/${name}.vue`
+      ),
+  }
+}
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: Home,
+    redirect: `/${routeList[0]}`,
   },
+  ...routeList.map(route => getRoute(route)),
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
+    path: '*',
     component: () =>
-      import(/* webpackChunkName: "about" */ '../views/About.vue'),
+      import(/* webpackChunkName: "404" */ '../views/componentList/404.vue'),
   },
 ]
 

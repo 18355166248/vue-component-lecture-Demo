@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div class="formDemo">
     <jForm :model="formInline" :rules="rules" label-width="60px">
       <jFromItem label="名字" prop="name">
         <jInput v-model="formInline.name"></jInput>
@@ -17,7 +17,7 @@ import jFromItem from 'components/Form/jFormItem'
 import jInput from 'components/Input/jInput'
 
 export default {
-  name: 'About',
+  name: 'FormDemo',
   data() {
     return {
       formInline: {},

@@ -5,6 +5,7 @@ function resolve(dir) {
 }
 
 module.exports = {
+  runtimeCompiler: true, // 支持extend方法内的template渲染dom
   // webpack 配置进行更细粒度的修改  https://cli.vuejs.org/zh/config/#chainwebpack
   chainWebpack: config => {
     //修改文件引入自定义路径

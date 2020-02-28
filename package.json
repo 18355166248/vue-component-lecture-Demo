@@ -8,7 +8,7 @@
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
     "start": "npm run serve",
-    "eslint": "eslint --fix --ext .js,.vue src"
+    "eslint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
     "async-validator": "^3.2.3",
@@ -17,6 +17,7 @@
     "node-sass": "^4.13.1",
     "sass-loader": "^8.0.2",
     "vue": "^2.6.10",
+    "vue-codemirror": "^4.0.6",
     "vue-router": "^3.1.3",
     "vuex": "^3.1.2"
   },
@@ -34,6 +35,7 @@
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-config-vue": "^2.0.2",
+    "eslint-plugin-jiang-eslint": "^1.1.0",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-vue": "^5.2.3",
     "husky": "^4.2.3",
