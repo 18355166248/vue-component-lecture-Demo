@@ -1,9 +1,10 @@
 <template>
-  <div></div>
+  <div ref="display"></div>
 </template>
 
 <script>
 import Vue from 'vue'
+import { randomStrUtil } from 'utils/randomStr.util'
 
 export default {
   name: 'Display',
@@ -18,6 +19,8 @@ export default {
       html: '',
       js: '',
       css: '',
+      id: randomStrUtil.randomStr(),
+      component: null,
     }
   },
   created() {
@@ -60,6 +63,8 @@ export default {
     },
     // 渲染组件
     renderCode() {
+      this.renderDestroy()
+
       this.splitCode()
 
       if (this.html && this.js) {
@@ -71,11 +76,36 @@ export default {
         const Component = Vue.extend(result)
 
         // 实例化组件
-        return new Component().$mount()
+        this.component = new Component().$mount()
+
+        this.$refs.display.appendChild(this.component.$el)
+      }
+
+      if (this.css) {
+        const style = document.createElement('style')
+        style.type = 'text/css'
+        style.id = this.id
+        style.innerHTML = this.css
+
+        document.getElementsByTagName('head')[0].appendChild(style)
       }
     },
     // 销毁组件
-    renderDestroy() {},
+    renderDestroy() {
+      const componentDom = document.getElementById(this.id)
+      if (componentDom) componentDom.parentNode.removeChild(componentDom)
+
+      if (this.component) {
+        this.component.$destroy()
+
+        this.$refs.display.innerHTML = ''
+
+        this.component = null
+      }
+    },
+  },
+  beforeDestroy() {
+    this.renderDestroy()
   },
 }
 </script>

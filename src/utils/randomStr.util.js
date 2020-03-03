@@ -1,3 +1,15 @@
-const randomStrUtil = {} /* 1233 */
+const randomStrUtil = {
+  // 从指定的 a-zA-Z0-9 中随机生成 32 位的字符串
+  randomStr(len = 32) {
+    const $chars =
+      'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
+    const maxPos = $chars.length
+    let str = ''
+    for (let i = 0; i < len; i++) {
+      str += $chars.charAt(Math.floor(Math.random() * maxPos))
+    }
+    return str
+  },
+}
 
 export { randomStrUtil }

@@ -13,5 +13,6 @@ module.exports = {
       .set('@', resolve('src'))
       .set('mixins', resolve('src/mixins'))
       .set('components', resolve('src/components'))
+      .set('utils', resolve('src/utils'))
   },
 }

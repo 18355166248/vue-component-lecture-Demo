@@ -1,6 +1,6 @@
 <template>
   <div class="displayDemo">
-    <button class="runBtn" @click="getComponent">Run</button>
+    <span class="runBtn" @click="getComponent">Run</span>
     <div class="displayDemoContent">
       <codemirror
         ref="myCm"
@@ -30,43 +30,47 @@ export default {
   name: 'DisplayName',
   data() {
     const code = `<template>
-  <h1>Hello {{name}}!</h1>
+  <h1>{{name}}!</h1>
 </template>
 
 <script>
   export default {
     data() {
       return {
-        name: '江浪',
+        name: 'display Demo',
       }
     }
   }
 <\/script>
 
-<style lang="scss">
+<style>
+  h1 {
+    color: yellowgreen;
+  }
 </style>`
     return {
       code,
       cmOptions: {
-        // codemirror options
         tabSize: 2,
+        styleActiveLine: true,
         mode: 'text/javascript',
         theme: 'monokai',
         lineNumbers: true,
         line: true,
-        // more codemirror options, 更多 codemirror 的高级配置...
       },
     }
   },
   computed: {
     getStyle() {
       return {
-        height: `${window.innerHeight - 140}px`,
+        height: `${window.innerHeight - 200}px`,
         width: `${window.innerWidth / 2 - 60}px`,
       }
     },
   },
-  created() {},
+  mounted() {
+    this.$refs.display.renderCode()
+  },
   methods: {
     // onCmReady(cm) {
     //   console.log('the editor is readied!', cm)
@@ -78,11 +82,7 @@ export default {
       this.code = newCode
     },
     getComponent() {
-      const component = this.$refs.display.renderCode()
-
-      console.log(component)
-
-      this.$refs.display.$el.appendChild(component.$el)
+      this.$refs.display.renderCode()
     },
   },
   components: {
@@ -95,8 +95,13 @@ export default {
 <style lang="scss">
 .displayDemo {
   .runBtn {
+    display: inline-block;
     font-size: 16px;
     cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    padding: 4px 15px;
+    border: 1px solid #ccc;
   }
   .displayDemoContent {
     display: flex;
@@ -105,6 +110,9 @@ export default {
       display: inline-block;
       width: 50%;
       font-size: 14px;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      overflow: hidden;
       .CodeMirror {
         height: 100%;
       }
@@ -112,9 +120,12 @@ export default {
 
     .renderCodeArea {
       width: 50%;
+      padding: 10px;
       display: inline-block;
       border: 1px solid #ccc;
       box-sizing: border-box;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
     }
   }
 }
