@@ -3,7 +3,12 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
-export const routeList = ['FormDemo', 'GridDemo', 'DisplayDemo']
+export const routeList = [
+  'FormDemo',
+  'GridDemo',
+  'DisplayDemo',
+  'FunctionalDemo',
+]
 
 function getRoute(name) {
   return {
