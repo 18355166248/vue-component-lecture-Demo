@@ -1,5 +1,5 @@
 {
-  "name": "cypress",
+  "name": "vue-component-lecture-demo",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -51,8 +51,7 @@
   },
   "lint-staged": {
     "*.{js, vue, css}": [
-      "eslint",
-      "prettier"
+      "eslint"
     ]
   }
 }

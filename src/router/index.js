@@ -8,6 +8,7 @@ export const routeList = [
   'GridDemo',
   'DisplayDemo',
   'FunctionalDemo',
+  'TreeDemo',
 ]
 
 function getRoute(name) {
