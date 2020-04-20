@@ -8,6 +8,8 @@ module.exports = {
   plugins: ['vue', 'jiang-eslint'],
   extends: [
     'plugin:vue/essential',
+    'eslint:recommended',
+    '@vue/prettier',
     'plugin:jiang-eslint/base',
   ],
   // "off" or 0 - 关闭(禁用)规则

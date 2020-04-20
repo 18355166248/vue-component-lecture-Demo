@@ -13,6 +13,7 @@
 </template>
 
 <script>
+// eslint-disable-next-line jiang-eslint/no-block-comments
 import AsyncValidator from 'async-validator'
 import commonMixins from 'mixins/common'
 import _ from 'lodash'
@@ -23,24 +24,24 @@ export default {
   props: {
     label: {
       type: String,
-      default: '',
+      default: ''
     },
     prop: {
-      type: String,
-    },
+      type: String
+    }
   },
   inject: ['form'],
   data() {
     return {
       required: false,
       validateStatus: '',
-      validateMessage: '',
+      validateMessage: ''
     }
   },
   computed: {
     fieldValue() {
       return this.form.model[this.prop]
-    },
+    }
   },
   mounted() {
     if (this.prop) {
@@ -120,8 +121,8 @@ export default {
       this.validateMessage = ''
 
       this.form.model[this.prop] = this.initialValue
-    },
-  },
+    }
+  }
 }
 </script>
 
